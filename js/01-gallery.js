@@ -52,11 +52,11 @@ function onOpenModalWindowWithGallaryPicture(urlOriginalPicture) {
     `);
     
     instance.show();
-    
+
     const visible = instance.visible();
 
     if (visible) {
-       document.addEventListener('keydown', onModalKeypressEsc);
+        document.addEventListener('keydown', onModalKeypressEsc);
     }
 
     function onModalKeypressEsc(event){
@@ -65,5 +65,4 @@ function onOpenModalWindowWithGallaryPicture(urlOriginalPicture) {
         }
     }
 }
-   
 
