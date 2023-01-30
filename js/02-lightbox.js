@@ -22,9 +22,6 @@ function createGalleryCard(galleryItems) {
 
 let gallery = new SimpleLightbox('.gallery a',
     {
-        nav: false,
-        close: false,
-        overlayOpacity: 0.8,
         captionSelector: 'img',
         captionType: 'attr',
         captionsData: 'alt',

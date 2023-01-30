@@ -40,6 +40,10 @@ function onGalleryPictureClick(event) {
     const urlOriginalPicture = event.target.dataset.source;
 
     onOpenModalWindowWithGallaryPicture(urlOriginalPicture);
+    
+    document.body.style.overflow = "hidden";
+
+
 }
 
 function onOpenModalWindowWithGallaryPicture(urlOriginalPicture) {
