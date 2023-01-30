@@ -39,6 +39,10 @@ function onGalleryPictureClick(event) {
 
     const urlOriginalPicture = event.target.dataset.source;
 
+    onOpenModalWindowWithGallaryPicture(urlOriginalPicture);
+}
+
+function onOpenModalWindowWithGallaryPicture(urlOriginalPicture) {
     const instance = basicLightbox.create(`
         <img
             width="1280"
@@ -48,17 +52,18 @@ function onGalleryPictureClick(event) {
     `);
     
     instance.show();
-
+    
     const visible = instance.visible();
 
-    document.addEventListener('keydown', onModalKeypressEsc);
-
-    function onModalKeypressEsc(event){
-        if (visible && event.key === 'Escape') { 
-            instance.close();
-        }
-
+    if (visible) {
+       document.addEventListener('keydown', onModalKeypressEsc);
     }
 
+    function onModalKeypressEsc(event){
+        if (event.key === 'Escape') { 
+            instance.close();
+        }
+    }
 }
+   
 
