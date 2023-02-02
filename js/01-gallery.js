@@ -53,19 +53,17 @@ function onOpenModalWindowWithGallaryPicture(urlOriginalPicture) {
             src="${urlOriginalPicture}"
             alt=""
         />
-    `);
+    `, {
+        onShow: (instance) => { window.addEventListener('keydown', onModalKeypressEsc) },
+        onClose: (instance) => { window.removeEventListener('keydown', onModalKeypressEsc) }
+    });
     
     instance.show();
 
-    const visible = instance.visible();
-
-    if (visible) {
-        document.addEventListener('keydown', onModalKeypressEsc);
-    }
 
     function onModalKeypressEsc(event){
-        if (event.key === 'Escape') { 
-            instance.close();
+        if (event.code === 'Escape') { 
+            onClose(instance);
         }
     }
 }
